@@ -12,8 +12,8 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-
 rootProject.name = "SwiftShop"
+
 include(":app")
 include(":ui")
 include(":remote")
