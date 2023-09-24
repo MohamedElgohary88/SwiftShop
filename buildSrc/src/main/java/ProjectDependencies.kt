@@ -17,7 +17,7 @@ object ProjectDependencies {
     private const val ROOM_VERSION = "2.5.1"
     private const val SPLASH_SCREEN_VERSION = "1.0.0-beta02"
     private const val KOTLIN_BOM = "1.8.0"
-    private const val ACTIVITY_COMPOSE = "1.5.1"
+    private const val ACTIVITY_COMPOSE = "1.7.2"
     private const val COMPOSE_BOM = "2022.10.00"
     private const val NAVIGATION_COMPOSE = "2.5.3"
     private const val HILT_NAVIGATION_VERSION = "1.0.0"
@@ -61,7 +61,6 @@ object ProjectDependencies {
     const val composeMaterial3 = "androidx.compose.material3:material3:$MATERIAL3_VERSION"
     const val composeJunit = "androidx.compose.ui:ui-test-junit4"
     const val composeUiTooling = "androidx.compose.ui:ui-tooling"
-    const val composeTestManifest = "androidx.compose.ui:ui-tooling"
     const val navigationCompose =
         "androidx.navigation:navigation-compose:$NAVIGATION_COMPOSE"
     const val composeFoundation =
