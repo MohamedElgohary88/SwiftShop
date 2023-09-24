@@ -10,7 +10,7 @@ android {
     compileSdk = Configurations.COMPILE_SDK
 
     defaultConfig {
-        minSdk  = Configurations.MIN_SDK
+        minSdk = Configurations.MIN_SDK
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -41,7 +41,7 @@ dependencies {
     implementation(project(Modules.DOMAIN_USE_CASE))
 
     implementation(ProjectDependencies.hilt)
-    implementation(ProjectDependencies.hiltCompiler)
+    kapt(ProjectDependencies.hiltCompiler)
     implementation(ProjectDependencies.gsonConverter)
 
     implementation(ProjectDependencies.roomRuntime)
