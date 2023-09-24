@@ -43,33 +43,28 @@ android {
 dependencies {
 
     implementation(project(Modules.PRESENTATION_VIEW_MODEL))
-    implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
 
-    implementation("androidx.activity:activity-compose:1.7.2")
-    //noinspection BomWithoutPlatform
-    implementation("androidx.compose:compose-bom:2023.09.01")
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.runtime:runtime")
-    implementation("androidx.compose.ui:ui-graphics")
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.material3:material3:1.1.2")
-    implementation("androidx.compose.ui:ui-test-junit4")
-    implementation("androidx.compose.ui:ui-tooling")
-    implementation("androidx.navigation:navigation-compose:2.7.3")
-    implementation("androidx.compose.foundation:foundation:1.5.1")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
-
+    implementation(ProjectDependencies.constraintLayout)
+    implementation(ProjectDependencies.activityCompose)
+    implementation(ProjectDependencies.composeBom)
+    implementation(ProjectDependencies.composeUi)
+    implementation(ProjectDependencies.composeRuntime)
+    implementation(ProjectDependencies.composeUiGraphics)
+    implementation(ProjectDependencies.composeUiPreviewTool)
+    implementation(ProjectDependencies.composeMaterial3)
+    implementation(ProjectDependencies.composeJunit)
+    implementation(ProjectDependencies.composeUiTooling)
+    implementation(ProjectDependencies.navigationCompose)
+    implementation(ProjectDependencies.composeFoundation)
+    implementation(ProjectDependencies.coroutines)
+    implementation(ProjectDependencies.lifecycleRuntime)
+    implementation(ProjectDependencies.lifecycleViewModel)
+    implementation(ProjectDependencies.lifecycleLiveData)
     implementation(ProjectDependencies.hilt)
     kapt(ProjectDependencies.hiltCompiler)
-
     implementation(ProjectDependencies.coil)
     implementation(ProjectDependencies.hiltNavigation)
-
     implementation(ProjectDependencies.lottie)
     implementation(ProjectDependencies.splashScreen)
-
-    implementation (ProjectDependencies.systemUiController)
+    implementation(ProjectDependencies.systemUiController)
 }
