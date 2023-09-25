@@ -19,6 +19,7 @@ object ProjectDependencies {
     private const val KOTLIN_BOM = "1.8.0"
     private const val ACTIVITY_COMPOSE = "1.7.2"
     private const val COMPOSE_BOM = "2023.09.01"
+    private const val COMPOSE_COMPILER = "1.5.3"
     private const val NAVIGATION_COMPOSE = "2.7.3"
     private const val HILT_NAVIGATION_VERSION = "1.0.0"
     private const val MATERIAL3_VERSION = "1.1.2"
@@ -54,6 +55,7 @@ object ProjectDependencies {
 
     const val activityCompose = "androidx.activity:activity-compose:$ACTIVITY_COMPOSE"
     const val composeBom = "androidx.compose:compose-bom:$COMPOSE_BOM"
+    const val composeCompiler = "androidx.compose.compiler:compiler:$COMPOSE_COMPILER"
     const val composeUi = "androidx.compose.ui:ui"
     const val composePreview = "androidx.compose.ui:ui-tooling-preview"
     const val composeRuntime = "androidx.compose.runtime:runtime"
@@ -86,7 +88,4 @@ object ProjectDependencies {
         "com.google.accompanist:accompanist-systemuicontroller:$SYSTEM_UI_CONTROLLER_VERSION"
     const val webView = "com.google.accompanist:accompanist-webview:$ACCOMPANIST"
 
-    const val firebase = "com.google.firebase:firebase-bom:$FIREBASE_VERSION"
-    const val firebase_auth = "com.google.firebase:firebase-auth-ktx"
-    const val firebase_firestore = "com.google.firebase:firebase-firestore-ktx"
 }

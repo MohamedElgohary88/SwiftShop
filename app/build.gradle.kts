@@ -1,4 +1,3 @@
-
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -8,14 +7,14 @@ plugins {
 
 android {
     namespace = "com.example.swiftshop"
-    compileSdk = 34
+    compileSdk = Configurations.COMPILE_SDK
 
     defaultConfig {
         applicationId = "com.example.swiftshop"
-        minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = Configurations.MIN_SDK
+        targetSdk = Configurations.TARGET_SDK
+        versionCode = Configurations.VERSION_CODE
+        versionName = Configurations.VERSION_NAME
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -39,16 +38,19 @@ android {
     kotlinOptions {
         jvmTarget = Configurations.JVM_TARGET
     }
-    buildFeatures {
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.3"
-    }
+    /*  buildFeatures {
+           compose = true
+       }
+       composeOptions {
+           kotlinCompilerExtensionVersion = Configurations.KOTLIN_COMPILER
+       }   */
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
+    }
+    kapt {
+        correctErrorTypes = true
     }
 }
 
@@ -58,6 +60,7 @@ dependencies {
     implementation(project(Modules.DATA_REMOTE))
     implementation(project(Modules.DATA_LOCAL))
     implementation(project(Modules.DOMAIN_USE_CASE))
+    implementation(project(Modules.ENTITIES_MODEL))
     implementation(project(Modules.PRESENTATION_UI))
     implementation(project(Modules.PRESENTATION_VIEW_MODEL))
 
@@ -67,7 +70,7 @@ dependencies {
     implementation(ProjectDependencies.logging)
 
     implementation(ProjectDependencies.hilt)
-    implementation(ProjectDependencies.composeMaterial3)
+    // implementation(ProjectDependencies.composeMaterial3)
 
     kapt(ProjectDependencies.hiltCompiler)
 
@@ -77,8 +80,4 @@ dependencies {
     kapt(ProjectDependencies.roomCompiler)
     implementation(ProjectDependencies.dataStore)
 
-}
-
-kapt {
-    correctErrorTypes = true
 }
