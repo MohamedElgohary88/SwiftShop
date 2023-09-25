@@ -1,7 +1,7 @@
 object ProjectDependencies {
 
     private const val FIREBASE_VERSION = "32.2.2"
-    private const val CORE_VERSION = "1.8.0"
+    private const val CORE_VERSION = "1.12.0"
     private const val CONSTRAINT_LAYOUT_VERSION = "1.0.1"
     private const val COIL_VERSION = "2.4.0"
     private const val JUNIT_VERSION = "4.13.2"
@@ -55,9 +55,10 @@ object ProjectDependencies {
     const val activityCompose = "androidx.activity:activity-compose:$ACTIVITY_COMPOSE"
     const val composeBom = "androidx.compose:compose-bom:$COMPOSE_BOM"
     const val composeUi = "androidx.compose.ui:ui"
+    const val composePreview = "androidx.compose.ui:ui-tooling-preview"
     const val composeRuntime = "androidx.compose.runtime:runtime"
     const val composeUiGraphics = "androidx.compose.ui:ui-graphics"
-    const val composeUiPreviewTool = "androidx.compose.ui:ui-tooling-preview"
+    const val composeMainfest = "androidx.compose.ui:ui-test-manifest"
     const val composeMaterial3 = "androidx.compose.material3:material3:$MATERIAL3_VERSION"
     const val composeJunit = "androidx.compose.ui:ui-test-junit4"
     const val composeUiTooling = "androidx.compose.ui:ui-tooling"

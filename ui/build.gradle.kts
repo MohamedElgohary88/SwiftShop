@@ -38,6 +38,11 @@ android {
     kapt {
         correctErrorTypes = true
     }
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
 }
 
 dependencies {
@@ -46,11 +51,13 @@ dependencies {
 
     implementation(ProjectDependencies.constraintLayout)
     implementation(ProjectDependencies.activityCompose)
+    implementation(ProjectDependencies.androidxCore)
     implementation(ProjectDependencies.composeBom)
+    implementation(ProjectDependencies.composePreview)
     implementation(ProjectDependencies.composeUi)
     implementation(ProjectDependencies.composeRuntime)
     implementation(ProjectDependencies.composeUiGraphics)
-    implementation(ProjectDependencies.composeUiPreviewTool)
+    implementation(ProjectDependencies.composeMainfest)
     implementation(ProjectDependencies.composeMaterial3)
     implementation(ProjectDependencies.composeJunit)
     implementation(ProjectDependencies.composeUiTooling)
@@ -67,4 +74,5 @@ dependencies {
     implementation(ProjectDependencies.lottie)
     implementation(ProjectDependencies.splashScreen)
     implementation(ProjectDependencies.systemUiController)
+    implementation(platform(ProjectDependencies.composeBom))
 }
