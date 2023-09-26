@@ -1,11 +1,13 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
     namespace = "com.example.ui"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 24
@@ -24,20 +26,53 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = Configurations.JVM_TARGET
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.3"
+    }
+    kapt {
+        correctErrorTypes = true
+    }
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
     }
 }
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.9.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.9.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    implementation(project(Modules.PRESENTATION_VIEW_MODEL))
+
+    implementation(ProjectDependencies.constraintLayout)
+    implementation(ProjectDependencies.activityCompose)
+    implementation(ProjectDependencies.androidxCore)
+    implementation(ProjectDependencies.composeBom)
+    implementation(ProjectDependencies.composePreview)
+    implementation(ProjectDependencies.composeUi)
+    implementation(ProjectDependencies.composeRuntime)
+    implementation(ProjectDependencies.composeUiGraphics)
+    implementation(ProjectDependencies.composeMainfest)
+    implementation(ProjectDependencies.composeMaterial3)
+    implementation(ProjectDependencies.composeJunit)
+    implementation(ProjectDependencies.composeUiTooling)
+    implementation(ProjectDependencies.navigationCompose)
+    implementation(ProjectDependencies.composeFoundation)
+    implementation(ProjectDependencies.coroutines)
+    implementation(ProjectDependencies.lifecycleRuntime)
+    implementation(ProjectDependencies.lifecycleViewModel)
+    implementation(ProjectDependencies.lifecycleLiveData)
+    implementation(ProjectDependencies.hilt)
+    kapt(ProjectDependencies.hiltCompiler)
+    implementation(ProjectDependencies.coil)
+    implementation(ProjectDependencies.hiltNavigation)
+    implementation(ProjectDependencies.lottie)
+    implementation(ProjectDependencies.splashScreen)
+    implementation(ProjectDependencies.systemUiController)
+    implementation(platform(ProjectDependencies.composeBom))
 }
