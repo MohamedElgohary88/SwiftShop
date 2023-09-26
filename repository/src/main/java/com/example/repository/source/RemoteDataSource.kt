@@ -33,9 +33,9 @@ interface RemoteDataSource {
 
     suspend fun getCategoryById(categoryId: String): CategoryDto
 
-    suspend fun createProduct(request: ProductRequestDto): ProductDto
+    suspend fun createProduct(product: ProductRequestDto): ProductDto
 
-    suspend fun updateProduct(productId: String, request: ProductRequestUpdateDto): ProductDto
+    suspend fun updateProduct(productId: String, product: ProductRequestUpdateDto): ProductDto
 
     suspend fun createCategory(name: String, image: String): CategoryDto
 
