@@ -6,6 +6,8 @@ import com.example.entities.error.NotFoundException
 import com.example.entities.error.NullResultException
 import com.example.entities.error.ServerException
 import com.example.entities.error.ValidationException
+import com.example.remote.service.ProductService
+import com.example.remote.service.UserService
 import com.example.repository.request.ProductRequestDto
 import com.example.repository.request.ProductRequestUpdateDto
 import com.example.repository.response.CategoryDto
@@ -19,19 +21,23 @@ import okhttp3.ResponseBody
 import retrofit2.Response
 import java.io.IOException
 import java.net.UnknownHostException
+import javax.inject.Inject
 
-class RetrofitDataSource() : RemoteDataSource {
+class RetrofitDataSource @Inject constructor(
+    private val productService: ProductService,
+    private val userService: UserService
+) : RemoteDataSource {
 
     override suspend fun getUsers(): List<UserDto> {
-        TODO("Not yet implemented")
+        return wrapApiCall { userService.getUsers() }
     }
 
     override suspend fun getUserById(userId: String): UserDto {
-        TODO("Not yet implemented")
+        return wrapApiCall { userService.getUserById(userId) }
     }
 
     override suspend fun getProfileData(token: String): UserDto {
-        TODO("Not yet implemented")
+        return wrapApiCall { userService.getProfileData(token) }
     }
 
     override suspend fun createUser(
@@ -40,7 +46,7 @@ class RetrofitDataSource() : RemoteDataSource {
         password: String,
         avatar: String
     ): UserDto {
-        TODO("Not yet implemented")
+        return wrapApiCall { userService.createUser(name, email, password, avatar) }
     }
 
     override suspend fun updateUserEmailAndName(
@@ -48,58 +54,58 @@ class RetrofitDataSource() : RemoteDataSource {
         email: String,
         name: String
     ): UserDto {
-        TODO("Not yet implemented")
+        return wrapApiCall { userService.updateUserEmailAndName(userId, email, name) }
     }
 
     override suspend fun loginUser(email: String, password: String): LoginDto {
-        TODO("Not yet implemented")
+        return wrapApiCall { userService.loginUser(email, password) }
     }
 
     override suspend fun getProducts(): List<ProductDto> {
-        TODO("Not yet implemented")
+        return wrapApiCall { productService.getProducts() }
     }
 
     override suspend fun getProductById(productId: String): ProductDto {
-        TODO("Not yet implemented")
+        return wrapApiCall { productService.getProductById(productId) }
     }
 
     override suspend fun getProductsPagination(offset: Int, limit: Int): List<ProductDto> {
-        TODO("Not yet implemented")
+        return wrapApiCall { productService.getProductsPagination(offset, limit) }
     }
 
     override suspend fun getCategories(): List<CategoryDto> {
-        TODO("Not yet implemented")
+        return wrapApiCall { productService.getCategories() }
     }
 
     override suspend fun getCategoryById(categoryId: String): CategoryDto {
-        TODO("Not yet implemented")
+        return wrapApiCall { productService.getCategoryById(categoryId) }
     }
 
-    override suspend fun createProduct(request: ProductRequestDto): ProductDto {
-        TODO("Not yet implemented")
+    override suspend fun createProduct(product: ProductRequestDto): ProductDto {
+        return wrapApiCall { productService.createProduct(product) }
     }
 
     override suspend fun updateProduct(
         productId: String,
-        request: ProductRequestUpdateDto
+        product: ProductRequestUpdateDto
     ): ProductDto {
-        TODO("Not yet implemented")
+        return wrapApiCall { productService.updateProduct(productId, product) }
     }
 
     override suspend fun createCategory(name: String, image: String): CategoryDto {
-        TODO("Not yet implemented")
+        return wrapApiCall { productService.createCategory(name, image) }
     }
 
     override suspend fun updateCategory(categoryId: String, name: String): CategoryDto {
-        TODO("Not yet implemented")
+        return wrapApiCall { productService.updateCategory(categoryId, name) }
     }
 
     override suspend fun uploadFile(filePart: MultipartBody.Part): UploadFileDto {
-        TODO("Not yet implemented")
+        return wrapApiCall { productService.uploadFile(filePart) }
     }
 
     override suspend fun downloadFile(fileName: String): ResponseBody {
-        TODO("Not yet implemented")
+        return wrapApiCall { productService.downloadFile(fileName) }
     }
 
     private suspend fun <T> wrapApiCall(function: suspend () -> Response<T>): T {

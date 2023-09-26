@@ -33,7 +33,10 @@ android {
         jvmTarget = Configurations.JVM_TARGET
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.3"
+        kotlinCompilerExtensionVersion = Configurations.KOTLIN_COMPILER
+    }
+    buildFeatures {
+        compose = true
     }
     kapt {
         correctErrorTypes = true
@@ -50,6 +53,7 @@ dependencies {
     implementation(project(Modules.PRESENTATION_VIEW_MODEL))
 
     implementation(ProjectDependencies.constraintLayout)
+    implementation(ProjectDependencies.composeCompiler)
     implementation(ProjectDependencies.activityCompose)
     implementation(ProjectDependencies.androidxCore)
     implementation(ProjectDependencies.composeBom)
