@@ -29,6 +29,6 @@ interface ProductsRepository {
 
     suspend fun uploadFile(file: File): UploadFile
 
-    suspend fun downloadFile(fileName: String): Boolean
+    suspend fun downloadFile(fileName: String): String
 
 }

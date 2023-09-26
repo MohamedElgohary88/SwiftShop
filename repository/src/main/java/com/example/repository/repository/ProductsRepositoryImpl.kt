@@ -5,6 +5,8 @@ import com.example.entities.product.Product
 import com.example.entities.product.ProductRequest
 import com.example.entities.product.ProductRequestUpdate
 import com.example.entities.product.UploadFile
+import com.example.repository.mapper.toDto
+import com.example.repository.mapper.toEntity
 import com.example.repository.source.RemoteDataSource
 import com.example.usecases.repository.ProductsRepository
 import okhttp3.MediaType
@@ -18,49 +20,49 @@ class ProductsRepositoryImpl @Inject constructor(
     private val remoteDataSource: RemoteDataSource
 ) : ProductsRepository {
     override suspend fun getProducts(): List<Product> {
-        TODO("Not yet implemented")
+        return remoteDataSource.getProducts().map { it.toEntity() }
     }
 
     override suspend fun getProductById(productId: String): Product {
-        TODO("Not yet implemented")
+        return remoteDataSource.getProductById(productId).toEntity()
     }
 
     override suspend fun getProductsPagination(offset: Int, limit: Int): List<Product> {
-        TODO("Not yet implemented")
+        return remoteDataSource.getProductsPagination(offset, limit).map { it.toEntity() }
     }
 
     override suspend fun getCategories(): List<Category> {
-        TODO("Not yet implemented")
+        return remoteDataSource.getCategories().map { it.toEntity() }
     }
 
     override suspend fun getCategoryById(categoryId: String): Category {
-        TODO("Not yet implemented")
+        return remoteDataSource.getCategoryById(categoryId).toEntity()
     }
 
     override suspend fun createProduct(product: ProductRequest): Product {
-        TODO("Not yet implemented")
+        return remoteDataSource.createProduct(product.toDto()).toEntity()
     }
 
     override suspend fun updateProduct(productId: String, product: ProductRequestUpdate): Product {
-        TODO("Not yet implemented")
+        return remoteDataSource.updateProduct(productId, product.toDto()).toEntity()
     }
 
     override suspend fun createCategory(name: String, image: String): Category {
-        TODO("Not yet implemented")
+        return remoteDataSource.createCategory(name, image).toEntity()
     }
 
     override suspend fun updateCategory(categoryId: String, name: String): Category {
-        TODO("Not yet implemented")
+        return remoteDataSource.updateCategory(categoryId, name).toEntity()
     }
 
     override suspend fun uploadFile(file: File): UploadFile {
         val requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file)
         val filePart = MultipartBody.Part.createFormData("file", file.name, requestFile)
-        TODO("Not yet implemented")
+        return remoteDataSource.uploadFile(filePart).toEntity()
     }
 
-    override suspend fun downloadFile(fileName: String): Boolean {
-        TODO("Not yet implemented")
+    override suspend fun downloadFile(fileName: String): String {
+        return remoteDataSource.downloadFile(fileName).string()
     }
 
 }
