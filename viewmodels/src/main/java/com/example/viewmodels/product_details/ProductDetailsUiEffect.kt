@@ -1,0 +1,3 @@
+package com.example.viewmodels.product_details
+
+sealed interface ProductDetailsUiEffect
