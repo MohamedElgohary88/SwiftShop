@@ -2,33 +2,77 @@ package com.example.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import com.example.ui.R
 
-// Set of Material typography styles to start with
+val Imprima = FontFamily(
+    Font(R.font.imprima_regular, weight = FontWeight.Normal)
+)
+
 val Typography = Typography(
-    bodyLarge = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
-        fontSize = 16.sp,
-        lineHeight = 24.sp,
-        letterSpacing = 0.5.sp
-    )
-    /* Other default text styles to override
     titleLarge = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
-        fontSize = 22.sp,
-        lineHeight = 28.sp,
-        letterSpacing = 0.sp
+        fontFamily = Imprima,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = Dimens().TextSize22,
+        lineHeight = Dimens().TextHeight28
     ),
+
+    titleMedium = TextStyle(
+        fontFamily = Imprima,
+        fontWeight = FontWeight.Normal,
+        fontSize = Dimens().TextSize16,
+        lineHeight = Dimens().TextHeight24
+    ),
+
+    titleSmall = TextStyle(
+        fontFamily = Imprima,
+        fontWeight = FontWeight.Normal,
+        fontSize = Dimens().TextSize14,
+        lineHeight = Dimens().TextHeight20
+    ),
+
+    bodyLarge = TextStyle(
+        fontFamily = Imprima,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = Dimens().TextSize16,
+        lineHeight = Dimens().TextHeight24
+    ),
+
+    bodyMedium = TextStyle(
+        fontFamily = Imprima,
+        fontWeight = FontWeight.Normal,
+        fontSize = Dimens().TextSize14,
+        lineHeight = Dimens().TextHeight20
+    ),
+
+    bodySmall = TextStyle(
+        fontFamily = Imprima,
+        fontWeight = FontWeight.Normal,
+        fontSize = Dimens().TextSize12,
+        lineHeight = Dimens().TextHeight16
+    ),
+
+    labelLarge = TextStyle(
+        fontFamily = Imprima,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = Dimens().TextSize14,
+        lineHeight = Dimens().TextHeight20
+    ),
+
+    labelMedium = TextStyle(
+        fontFamily = Imprima,
+        fontWeight = FontWeight.Normal,
+        fontSize = Dimens().TextSize12,
+        lineHeight = Dimens().TextHeight16
+    ),
+
     labelSmall = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Medium,
-        fontSize = 11.sp,
-        lineHeight = 16.sp,
-        letterSpacing = 0.5.sp
+        fontFamily = Imprima,
+        fontWeight = FontWeight.Normal,
+        fontSize = Dimens().TextSize11,
+        lineHeight = Dimens().TextHeight14
     )
-    */
 )
