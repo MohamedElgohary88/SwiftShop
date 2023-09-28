@@ -72,6 +72,7 @@ dependencies {
     implementation(ProjectDependencies.lifecycleViewModel)
     implementation(ProjectDependencies.lifecycleLiveData)
     implementation(ProjectDependencies.hilt)
+    implementation("androidx.appcompat:appcompat:1.6.1")
     kapt(ProjectDependencies.hiltCompiler)
     implementation(ProjectDependencies.coil)
     implementation(ProjectDependencies.hiltNavigation)

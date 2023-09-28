@@ -16,63 +16,63 @@ val Typography = Typography(
     titleLarge = TextStyle(
         fontFamily = Imprima,
         fontWeight = FontWeight.SemiBold,
-        fontSize = TextSize22,
-        lineHeight = TextHeight28
+        fontSize = Dimens().TextSize22,
+        lineHeight = Dimens().TextHeight28
     ),
 
     titleMedium = TextStyle(
         fontFamily = Imprima,
         fontWeight = FontWeight.Normal,
-        fontSize = TextSize16,
-        lineHeight = TextHeight24
+        fontSize = Dimens().TextSize16,
+        lineHeight = Dimens().TextHeight24
     ),
 
     titleSmall = TextStyle(
         fontFamily = Imprima,
         fontWeight = FontWeight.Normal,
-        fontSize = TextSize14,
-        lineHeight = TextHeight20
+        fontSize = Dimens().TextSize14,
+        lineHeight = Dimens().TextHeight20
     ),
 
     bodyLarge = TextStyle(
         fontFamily = Imprima,
         fontWeight = FontWeight.SemiBold,
-        fontSize = TextSize16,
-        lineHeight = TextHeight24
+        fontSize = Dimens().TextSize16,
+        lineHeight = Dimens().TextHeight24
     ),
 
     bodyMedium = TextStyle(
         fontFamily = Imprima,
         fontWeight = FontWeight.Normal,
-        fontSize = TextSize14,
-        lineHeight = TextHeight20
+        fontSize = Dimens().TextSize14,
+        lineHeight = Dimens().TextHeight20
     ),
 
     bodySmall = TextStyle(
         fontFamily = Imprima,
         fontWeight = FontWeight.Normal,
-        fontSize = TextSize12,
-        lineHeight = TextHeight16
+        fontSize = Dimens().TextSize12,
+        lineHeight = Dimens().TextHeight16
     ),
 
     labelLarge = TextStyle(
         fontFamily = Imprima,
         fontWeight = FontWeight.SemiBold,
-        fontSize = TextSize14,
-        lineHeight = TextHeight20
+        fontSize = Dimens().TextSize14,
+        lineHeight = Dimens().TextHeight20
     ),
 
     labelMedium = TextStyle(
         fontFamily = Imprima,
         fontWeight = FontWeight.Normal,
-        fontSize = TextSize12,
-        lineHeight = TextHeight16
+        fontSize = Dimens().TextSize12,
+        lineHeight = Dimens().TextHeight16
     ),
 
     labelSmall = TextStyle(
         fontFamily = Imprima,
         fontWeight = FontWeight.Normal,
-        fontSize = TextSize11,
-        lineHeight = TextHeight14
+        fontSize = Dimens().TextSize11,
+        lineHeight = Dimens().TextHeight14
     )
 )
