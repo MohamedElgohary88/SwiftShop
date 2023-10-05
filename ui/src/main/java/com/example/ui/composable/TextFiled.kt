@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.text.selection.TextSelectionColors
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -15,14 +14,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
+import com.example.ui.theme.Black38
 import com.example.ui.theme.Black60
 import com.example.ui.theme.Dimens
+import com.example.ui.theme.LightOrange
+import com.example.ui.theme.OnSecondary
 import com.example.ui.theme.Primary
 import com.example.ui.theme.White
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TeamixTextField(
+fun SwiftTextField(
     value: String,
     modifier: Modifier = Modifier,
     hint: String = "",
@@ -57,16 +58,18 @@ fun TeamixTextField(
         trailingIcon = trailingIcon,
         leadingIcon = leadingIcon,
         shape = RoundedCornerShape(Dimens().Radius8),
-        colors = TextFieldDefaults.textFieldColors(
-            containerColor = containerColor,
-            focusedIndicatorColor = Color.Transparent,
-            unfocusedIndicatorColor = Color.Transparent,
-            disabledIndicatorColor = Color.Transparent,
+        colors = TextFieldDefaults.colors(
+            focusedContainerColor = containerColor,
+            unfocusedContainerColor = containerColor,
+            disabledContainerColor = containerColor,
             cursorColor = Black60,
             selectionColors = TextSelectionColors(
                 handleColor = Primary,
                 backgroundColor = Primary
-            )
+            ),
+            focusedIndicatorColor = Color.Transparent,
+            unfocusedIndicatorColor = Color.Transparent,
+            disabledIndicatorColor = Color.Transparent,
         )
     )
 }
