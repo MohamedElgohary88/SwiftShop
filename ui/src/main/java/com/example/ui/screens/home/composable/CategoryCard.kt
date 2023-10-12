@@ -2,12 +2,16 @@ package com.example.ui.screens.home.composable
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Icon
@@ -25,6 +29,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.rememberAsyncImagePainter
+import coil.compose.rememberImagePainter
 import com.example.ui.R
 import com.example.ui.theme.Dimens
 import com.example.ui.theme.Imprima
@@ -35,47 +41,60 @@ import com.example.ui.theme.Primary
 
 data class Category(val icon: Painter, val title: String)
 
-val categoriesList = mutableListOf<Category>()
-
 @Composable
-fun AddCategory() {
-    categoriesList.add(Category(painterResource(id = R.drawable.shirt), "Clothes"))
-    categoriesList.add(Category(painterResource(id = R.drawable.laptop), "Electronics"))
-    categoriesList.add(Category(painterResource(id = R.drawable.sofa), "Furniture"))
-    categoriesList.add(Category(painterResource(id = R.drawable.shoes), "Shoes"))
+fun LoadCategoryPainters() {
+    val shirtPainter = rememberAsyncImagePainter(model = R.drawable.shirt)
+    val laptopPainter = rememberAsyncImagePainter(model = R.drawable.laptop)
+    val sofaPainter = rememberAsyncImagePainter(model = R.drawable.sofa)
+    val shoesPainter = rememberAsyncImagePainter(model = R.drawable.shoes)
+
+    val categoriesList = listOf(
+        Category(shirtPainter, "Clothes"),
+        Category(laptopPainter, "Electronics"),
+        Category(sofaPainter, "Furniture"),
+        Category(shoesPainter, "Shoes")
+    )
+    CategoriesList(categories = categoriesList)
 }
 
+
 @Composable
-fun CategoriesList() {
-    AddCategory()
+fun CategoriesList(categories: List<Category>) {
     Text(
         text = "Categories",
-        modifier = Modifier.padding(vertical = Dimens().SpacingXLarge),
+        modifier = Modifier.padding(
+            horizontal = Dimens().SpacingXLarge,
+            vertical = Dimens().SpacingXMedium
+        ),
         fontFamily = Imprima,
         style = MaterialTheme.typography.titleLarge,
         color = Primary
     )
-    LazyRow {
-        items(categoriesList.size) { index ->
-            CategoryCard(icon = categoriesList[index].icon, text = categoriesList[index].title)
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = Dimens().SpacingXLarge),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        content = {
+            categories.forEach { category ->
+                CategoryCard(icon = category.icon, text = category.title)
+            }
         }
-    }
+    )
 }
 
 
 @Composable
-fun CategoryCard(
-    modifier: Modifier = Modifier,
-    icon: Painter,
-    text: String,
-) {
+fun CategoryCard(icon: Painter, text: String) {
     Column(
-        modifier = modifier.padding(16.dp),
+        modifier = Modifier
+            .wrapContentSize()
+            .padding(horizontal = Dimens().SpacingXMedium),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Box(
-            modifier = modifier
-                .size(50.dp)
+            modifier = Modifier
+                .size(64.dp)
                 .border(1.dp, color = LightOrange, shape = CircleShape)
                 .clip(CircleShape)
                 .background(Color.Transparent),
@@ -85,20 +104,21 @@ fun CategoryCard(
                 painter = icon,
                 contentDescription = null,
                 tint = Primary,
-                modifier = modifier.size(24.dp)
+                modifier = Modifier.size(24.dp)
             )
         }
-        Spacer(modifier = modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(8.dp))
         Text(
             text = text,
             color = OrangeGray,
             style = TextStyle(
-                fontWeight = FontWeight.Bold,
+                fontWeight = FontWeight.Normal,
                 fontSize = 16.sp
             )
         )
     }
 }
+
 
 @Preview
 @Composable
