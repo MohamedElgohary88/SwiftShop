@@ -14,7 +14,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import com.example.ui.R
-import com.example.ui.composable.TeamixTextField
+import com.example.ui.composable.SwiftTextField
 import com.example.ui.theme.Black60
 import com.example.ui.theme.Dimens
 
@@ -36,7 +36,7 @@ fun LoginComponents(
             style = MaterialTheme.typography.bodyMedium,
             color = Black60
         )
-        TeamixTextField(
+        SwiftTextField(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = Dimens().SpacingXMedium, bottom = Dimens().SpacingXLarge),
@@ -50,7 +50,7 @@ fun LoginComponents(
         style = MaterialTheme.typography.bodyMedium,
         color = Black60
     )
-    TeamixTextField(
+    SwiftTextField(
         modifier = Modifier
             .fillMaxWidth()
             .padding(top = Dimens().SpacingXMedium),
@@ -65,7 +65,7 @@ fun LoginComponents(
     )
     val passwordIcon =
         if (passwordVisibility) R.drawable.ic_eye else R.drawable.ic_eye_closed
-    TeamixTextField(
+    SwiftTextField(
         modifier = Modifier
             .fillMaxWidth()
             .padding(top = Dimens().SpacingXMedium, bottom = Dimens().SpacingExtraHuge),

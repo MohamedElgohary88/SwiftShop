@@ -72,6 +72,7 @@ dependencies {
     implementation(ProjectDependencies.lifecycleViewModel)
     implementation(ProjectDependencies.lifecycleLiveData)
     implementation(ProjectDependencies.hilt)
+    implementation ("io.coil-kt:coil-compose:2.4.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     kapt(ProjectDependencies.hiltCompiler)
     implementation(ProjectDependencies.coil)
