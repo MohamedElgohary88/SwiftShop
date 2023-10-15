@@ -1,8 +1,11 @@
 package com.example.ui.screens.home
 
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
@@ -18,6 +21,7 @@ import com.example.ui.R
 import com.example.ui.composable.SwiftTextField
 import com.example.ui.screens.home.composable.CategoriesList
 import com.example.ui.screens.home.composable.LoadCategoryPainters
+import com.example.ui.screens.home.composable.ProductCardWithIcon
 import com.example.ui.screens.home.composable.ProductListHorizontal
 import com.example.ui.theme.Dimens
 import com.example.ui.theme.Imprima
@@ -32,8 +36,7 @@ fun HomeScreen() {
 @Composable
 fun HomeContent() {
     LazyColumn(
-        modifier = Modifier
-            .fillMaxSize()
+        modifier = Modifier.fillMaxSize()
     ) {
         item {
             Text(
@@ -63,6 +66,24 @@ fun HomeContent() {
         }
         item {
             LoadCategoryPainters()
+        }
+        item {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                ProductCardWithIcon()
+                ProductCardWithIcon()
+            }
+        }
+        item {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                ProductCardWithIcon()
+                ProductCardWithIcon()
+            }
         }
         item {
             ProductListHorizontal(text = "Flash Sale")
