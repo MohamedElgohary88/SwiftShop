@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -31,17 +32,23 @@ import com.example.ui.theme.White
 
 @Composable
 fun ProductCardWithIcon() {
-    Column {
+    Column(
+        modifier = Modifier
+            .width(140.dp)
+            .height(200.dp)
+            .padding(horizontal = Dimens().SpacingMedium)
+    ) {
         Box(
             modifier = Modifier
                 .padding(Dimens().SpacingXMedium)
-                .fillMaxSize()
-                .background(color = White)
+                .width(140.dp)
+                .fillMaxHeight(.5f)
+                .background(color = Color.Transparent)
         ) {
             Image(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(200.dp)
+                    .fillMaxHeight(.8f)
                     .border(
                         1.dp,
                         Color.Transparent,
@@ -51,21 +58,39 @@ fun ProductCardWithIcon() {
                 contentDescription = "product image"
             )
 
-            Image(
+            Box(
                 modifier = Modifier
-                    .align(Alignment.BottomCenter) // Align the bag icon to the bottom center
-                    .size(40.dp) // Set the size of the bag icon
-                    .padding(Dimens().SpacingSmall), // Add padding to adjust its position
-                painter = painterResource(id = R.drawable.bag),
-                contentDescription = "bag icon"
-            )
+                    .align(Alignment.BottomEnd)
+                    .size(36.dp)
+                    .padding(end = Dimens().SpacingXLarge)
+                    .background(White)
+                    .border(
+                        1.dp,
+                        Color.Transparent,
+                        shape = CircleShape
+                    )
+            ) {
+                Image(
+                    modifier = Modifier
+                        .align(Alignment.Center)
+                        .size(28.dp)
+                        .background(Black)
+                        .border(
+                            1.dp,
+                            Color.Transparent,
+                            shape = CircleShape
+                        ),
+                    painter = painterResource(id = R.drawable.bag),
+                    contentDescription = "bag icon"
+                )
+            }
         }
 
         Text(
             text = "FS - Nike Air Max 270 React...",
             modifier = Modifier.padding(
-                top = Dimens().SpacingXSmall, // Add padding at the top
-                start = Dimens().SpacingXMedium, // Add horizontal padding
+                top = Dimens().SpacingXSmall,
+                start = Dimens().SpacingXMedium,
                 end = Dimens().SpacingXMedium
             ),
             fontFamily = Imprima,
@@ -75,7 +100,7 @@ fun ProductCardWithIcon() {
 
         Text(
             text = "\$299,43",
-            modifier = Modifier.padding(bottom = Dimens().SpacingXMedium), // Adjust the bottom padding
+            modifier = Modifier.padding(bottom = Dimens().SpacingXMedium),
             fontFamily = Imprima,
             style = MaterialTheme.typography.bodySmall,
             color = Primary

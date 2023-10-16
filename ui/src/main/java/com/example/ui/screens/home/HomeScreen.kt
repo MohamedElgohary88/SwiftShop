@@ -70,7 +70,6 @@ fun HomeContent() {
         item {
             Row(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 ProductCardWithIcon()
                 ProductCardWithIcon()
@@ -79,7 +78,6 @@ fun HomeContent() {
         item {
             Row(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 ProductCardWithIcon()
                 ProductCardWithIcon()
